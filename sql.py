@@ -2,7 +2,6 @@
 #http://cdb.io/1i5ssO3
 
 import sqlite3
-import pandas as pd
 import numpy as np
 from scipy import stats
 
@@ -15,8 +14,6 @@ def score_by_zipcode():
     sql_command = "SELECT ZIPCODE, count(ZIPCODE) from webextract GROUP by ZIPCODE"
     c.execute(sql_command)
     zips = c.fetchall()
-    
-    print len(zips)
     
     zips.sort(key=lambda x: x[1])
     zips.reverse()
